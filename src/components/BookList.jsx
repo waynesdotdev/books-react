@@ -1,5 +1,11 @@
-export default function BookList(props) {
+import BookShow from "./BookShow.jsx";
+
+export default function BookList({books, onDelete, onEdit}) {
+    const renderedBooks = books.map((book) => {
+        return <BookShow key={book.id} book={book} onDelete={onDelete} onEdit={onEdit}/>
+    })
+
     return (
-        <div></div>
+        <div>{renderedBooks}</div>
     );
 }
