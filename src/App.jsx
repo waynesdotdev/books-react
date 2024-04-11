@@ -1,7 +1,20 @@
+import {useState} from "react";
+import BookCreate from "./components/BookCreate.jsx";
+
 export default function App() {
+    const [books, setBooks] = useState([]);
+
+    function createBook(title) {
+        const updatedBooks = [
+            ...books,
+            {id: 123, title}
+        ]
+        setBooks(updatedBooks)
+    }
+
     return (
         <>
-            <h1>Hello From Books-react</h1>
+            <BookCreate onCreate={createBook}/>
         </>
     )
 }
