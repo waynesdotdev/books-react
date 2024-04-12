@@ -1,6 +1,9 @@
 import {useState} from 'react';
+import useBooksContext from "../hooks/use-hooks-context.jsx";
 
-export default function BookCreate({onCreate}) {
+export default function BookCreate() {
+    const {createBook} = useBooksContext()
+
     const [title, setTitle] = useState('')
 
     function handleChange(e) {
@@ -9,7 +12,7 @@ export default function BookCreate({onCreate}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        onCreate(title)
+        createBook(title)
         setTitle('') // reset input field
     }
 
